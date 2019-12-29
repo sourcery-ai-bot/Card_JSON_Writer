@@ -4,14 +4,13 @@ import os
 file = open(os.path.dirname(os.path.realpath(__file__)) + '\path_config.txt', 'r')
 arquivo_caminho = file.read()
 
-#Os comentarios são testes para usar os dados antigos ao inves de sobrescrever
-"""
-with open(arquivo_caminho) as data_file:    
-    data_old = json.load(data_file)
-"""
-
-data = {}
-data['Carta'] = []
+r = input('Se o arquivo for novo digite n se ja existir dados digite a: ')
+if r == 'n':
+    data = {}
+    data['Carta'] = []
+else:
+    with open(arquivo_caminho) as data_file:    
+        data = json.load(data_file)
 
 i = 0
 while i == 0: 
@@ -37,9 +36,6 @@ while i == 0:
         i = int(input('Se deseja continuar digite 0, se nao digite 1: '))
     except:
         i = 1
-"""
-data = data_old + data
-"""
 
 with open(arquivo_caminho, 'w') as outfile:
     json.dump(data, outfile)
