@@ -6,8 +6,7 @@ arquivo_caminho = file.read()
 
 r = input('Se o arquivo for novo digite n se ja existir dados digite a: ')
 if r == 'n':
-    data = {}
-    data['Carta'] = []
+    data = {'Carta': []}
 else:
     with open(arquivo_caminho) as data_file:    
         data = json.load(data_file)
